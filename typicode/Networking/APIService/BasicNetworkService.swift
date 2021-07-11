@@ -11,12 +11,10 @@ import RxAlamofire
 
 struct BasicNetworkService: NetworkService {
   
-  func load<T>(resource: ArrayAPIResource<T>) -> Observable<[T]> where T : Decodable, T : Encodable {
+  func load<T>(resource: ArrayAPIResource<T>) -> Observable<[T]> {
     return RxAlamofire
       .request(resource.requestAPIType)
-      .debug()
       .responseJSON()
-      .debug()
       .map { $0.data ?? Data() }
       .flatMap(resource.parse)
   }

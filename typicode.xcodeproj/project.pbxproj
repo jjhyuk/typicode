@@ -22,6 +22,7 @@
 		948D04EF269896B5002866E5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D04EE269896B5002866E5 /* APIError.swift */; };
 		948D04F2269899A4002866E5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D04F1269899A4002866E5 /* Post.swift */; };
 		948D04F426989BEB002866E5 /* Request+Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D04F326989BEB002866E5 /* Request+Logging.swift */; };
+		948D04F7269B2461002866E5 /* MainViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D04F6269B2461002866E5 /* MainViewControllerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		948D04EE269896B5002866E5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		948D04F1269899A4002866E5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		948D04F326989BEB002866E5 /* Request+Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Logging.swift"; sourceTree = "<group>"; };
+		948D04F6269B2461002866E5 /* MainViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				948D04F02698998C002866E5 /* Model */,
-				948D04ED269896AA002866E5 /* Untility */,
+				948D04ED269896AA002866E5 /* Utility */,
 				948D04E726988F99002866E5 /* Protocols */,
 				948D04DE269880BC002866E5 /* Networking */,
+				948D04F5269B243C002866E5 /* ViewModel */,
 				948D04CA26987E61002866E5 /* AppDelegate.swift */,
 				948D04CC26987E61002866E5 /* SceneDelegate.swift */,
 				948D04CE26987E61002866E5 /* ViewController.swift */,
@@ -147,12 +150,12 @@
 			path = APIModel;
 			sourceTree = "<group>";
 		};
-		948D04ED269896AA002866E5 /* Untility */ = {
+		948D04ED269896AA002866E5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				948D04EE269896B5002866E5 /* APIError.swift */,
 			);
-			path = Untility;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		948D04F02698998C002866E5 /* Model */ = {
@@ -161,6 +164,14 @@
 				948D04F1269899A4002866E5 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		948D04F5269B243C002866E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				948D04F6269B2461002866E5 /* MainViewControllerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CCCAD586D799EE488FD1E01C /* Frameworks */ = {
@@ -285,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948D04F7269B2461002866E5 /* MainViewControllerViewModel.swift in Sources */,
 				948D04CF26987E61002866E5 /* ViewController.swift in Sources */,
 				948D04E226988C15002866E5 /* BasicAPIRequest.swift in Sources */,
 				948D04CB26987E61002866E5 /* AppDelegate.swift in Sources */,

@@ -11,6 +11,8 @@ enum BasicAPIRequest: APIRequestConvertible {
   
   case posts
   case albums
+  // test
+  case postsUID10
   
   var method: HTTPMethod {
       return .get
@@ -22,6 +24,9 @@ enum BasicAPIRequest: APIRequestConvertible {
       return "/albums"
     case .posts:
       return "/posts"
+    // test
+    case .postsUID10:
+      return "/posts?userId=10"
     }
   }
   
@@ -30,6 +35,9 @@ enum BasicAPIRequest: APIRequestConvertible {
   }
   
   func asURLRequest() throws -> URLRequest {
+    
+    print(baseURL.appending(path))
+    print(method.rawValue)
     
     let originalRequest = try URLRequest(url: baseURL.appending(path),
                                          method: method,

@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import RxAlamofire
 
 struct ArrayAPIResource<T:Codable> {
   let objectType = T.self

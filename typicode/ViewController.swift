@@ -9,52 +9,59 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxAlamofire
+import RxCocoa
 
 class ViewController: UIViewController {
   
-  var stackView: UIStackView = UIStackView()
+  let tableView: UITableView = UITableView()
+  
+  var viewModel: MainViewControllerViewModelType = MainViewControllerViewModel()
+  
+  let disposeBag: DisposeBag = DisposeBag()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+   
+    setUpTableView()
     
-    view.addSubview(stackView)
-    stackView.axis = .vertical
-    stackView.distribution = .fillProportionally
-    stackView.spacing = 4
-    
-    
-    let userLabel = UILabel()
-    let titleLabel = UILabel()
-    let bodyLabel = UILabel()
-    
-    view.addSubview(userLabel)
-    view.addSubview(titleLabel)
-    view.addSubview(bodyLabel)
-    
-    [userLabel, titleLabel, bodyLabel].forEach{
-      $0.numberOfLines = 0
-      stackView.addArrangedSubview($0)
-    }
-    
-    stackView.snp.makeConstraints { make in
-      make.top.equalToSuperview().offset(10)
-      make.leading.equalToSuperview().offset(10)
-      make.trailing.equalToSuperview().offset(-10)
-      make.bottom.equalToSuperview().offset(-10)
-    }
-    
-    userLabel.text = "123"
-    titleLabel.text = "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
-    bodyLabel.text = "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
-    
-    BasicNetworkService().load(resource: ArrayAPIResource<Post>(requestAPIType: BasicAPIRequest.posts))
-      .subscribe { post in
-        post.element
-      }
-      .dispose()
+    bindTableView()
+
   }
-
-
+  
+  func setUpTableView() {
+    tableView.backgroundColor = .white
+    view.addSubview(tableView)
+    
+    tableView.snp.makeConstraints { make in
+      make.top.equalToSuperview()
+      make.leading.equalToSuperview()
+      make.trailing.equalToSuperview()
+      make.bottom.equalToSuperview()
+    }
+    
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "test")
+    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = 100
+  }
+  
+  func bindTableView() {
+    viewModel.fetchDataSubject
+      .bind(to: tableView.rx.items) { tableView, row, item in
+        let cell = tableView.dequeueReusableCell(withIdentifier: "test")!
+        cell.textLabel?.text = item.title
+        return cell
+      }
+      .disposed(by: disposeBag)
+    
+    // test
+    tableView.rx.itemSelected
+      .subscribe { indexPath in
+        self.viewModel.testTab()
+      }
+      .disposed(by: disposeBag)
+  }
 }
+
+
 
