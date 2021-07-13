@@ -23,6 +23,9 @@
 		948D04F2269899A4002866E5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D04F1269899A4002866E5 /* Post.swift */; };
 		948D04F426989BEB002866E5 /* Request+Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D04F326989BEB002866E5 /* Request+Logging.swift */; };
 		948D04F7269B2461002866E5 /* MainViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D04F6269B2461002866E5 /* MainViewControllerViewModel.swift */; };
+		948D051F269D8303002866E5 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D051E269D8303002866E5 /* PostCell.swift */; };
+		948D0524269DDD25002866E5 /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D0523269DDD25002866E5 /* PostUseCase.swift */; };
+		948D0526269DDD4B002866E5 /* PostRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D0525269DDD4B002866E5 /* PostRepo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		948D04F1269899A4002866E5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		948D04F326989BEB002866E5 /* Request+Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Logging.swift"; sourceTree = "<group>"; };
 		948D04F6269B2461002866E5 /* MainViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerViewModel.swift; sourceTree = "<group>"; };
+		948D051E269D8303002866E5 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		948D0523269DDD25002866E5 /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
+		948D0525269DDD4B002866E5 /* PostRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +96,9 @@
 		948D04C926987E61002866E5 /* typicode */ = {
 			isa = PBXGroup;
 			children = (
-				948D04F02698998C002866E5 /* Model */,
 				948D04ED269896AA002866E5 /* Utility */,
-				948D04E726988F99002866E5 /* Protocols */,
-				948D04DE269880BC002866E5 /* Networking */,
+				948D0520269DDC1E002866E5 /* Domain */,
+				948D051D269D82F8002866E5 /* UI */,
 				948D04F5269B243C002866E5 /* ViewModel */,
 				948D04CA26987E61002866E5 /* AppDelegate.swift */,
 				948D04CC26987E61002866E5 /* SceneDelegate.swift */,
@@ -109,6 +114,7 @@
 		948D04DE269880BC002866E5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				948D04E726988F99002866E5 /* Protocols */,
 				948D04EA26989520002866E5 /* APIModel */,
 				948D04E426988F74002866E5 /* APIService */,
 				948D04E326988F59002866E5 /* Request */,
@@ -172,6 +178,41 @@
 				948D04F6269B2461002866E5 /* MainViewControllerViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		948D051D269D82F8002866E5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				948D051E269D8303002866E5 /* PostCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		948D0520269DDC1E002866E5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				948D04F02698998C002866E5 /* Model */,
+				948D04DE269880BC002866E5 /* Networking */,
+				948D0522269DDC3C002866E5 /* Repo */,
+				948D0521269DDC25002866E5 /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		948D0521269DDC25002866E5 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				948D0523269DDD25002866E5 /* PostUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		948D0522269DDC3C002866E5 /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				948D0525269DDD4B002866E5 /* PostRepo.swift */,
+			);
+			path = Repo;
 			sourceTree = "<group>";
 		};
 		CCCAD586D799EE488FD1E01C /* Frameworks */ = {
@@ -298,6 +339,8 @@
 			files = (
 				948D04F7269B2461002866E5 /* MainViewControllerViewModel.swift in Sources */,
 				948D04CF26987E61002866E5 /* ViewController.swift in Sources */,
+				948D051F269D8303002866E5 /* PostCell.swift in Sources */,
+				948D0524269DDD25002866E5 /* PostUseCase.swift in Sources */,
 				948D04E226988C15002866E5 /* BasicAPIRequest.swift in Sources */,
 				948D04CB26987E61002866E5 /* AppDelegate.swift in Sources */,
 				948D04E026988BC7002866E5 /* APIRequestConvertible.swift in Sources */,
@@ -308,6 +351,7 @@
 				948D04EF269896B5002866E5 /* APIError.swift in Sources */,
 				948D04F2269899A4002866E5 /* Post.swift in Sources */,
 				948D04F426989BEB002866E5 /* Request+Logging.swift in Sources */,
+				948D0526269DDD4B002866E5 /* PostRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

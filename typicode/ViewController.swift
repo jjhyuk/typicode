@@ -15,18 +15,16 @@ class ViewController: UIViewController {
   
   let tableView: UITableView = UITableView()
   
-  var viewModel: MainViewControllerViewModelType = MainViewControllerViewModel()
+  var viewModel: MainViewControllerViewModelType = MainViewControllerViewModel(postUseCase: PostUseCase(postRepo: PostRepo()))
   
-  let disposeBag: DisposeBag = DisposeBag()
+  private let disposeBag: DisposeBag = DisposeBag()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
    
     setUpTableView()
-    
     bindTableView()
-
   }
   
   func setUpTableView() {
@@ -40,7 +38,7 @@ class ViewController: UIViewController {
       make.bottom.equalToSuperview()
     }
     
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "test")
+    tableView.register(PostCell.self, forCellReuseIdentifier: "test")
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 100
   }
@@ -48,8 +46,8 @@ class ViewController: UIViewController {
   func bindTableView() {
     viewModel.fetchDataSubject
       .bind(to: tableView.rx.items) { tableView, row, item in
-        let cell = tableView.dequeueReusableCell(withIdentifier: "test")!
-        cell.textLabel?.text = item.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "test") as! PostCell
+        cell.configureWith(item)
         return cell
       }
       .disposed(by: disposeBag)

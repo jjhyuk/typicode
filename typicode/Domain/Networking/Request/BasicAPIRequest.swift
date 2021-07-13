@@ -36,9 +36,6 @@ enum BasicAPIRequest: APIRequestConvertible {
   
   func asURLRequest() throws -> URLRequest {
     
-    print(baseURL.appending(path))
-    print(method.rawValue)
-    
     let originalRequest = try URLRequest(url: baseURL.appending(path),
                                          method: method,
                                          headers: headers)

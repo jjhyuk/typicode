@@ -17,14 +17,32 @@ protocol MainViewControllerViewModelType {
 
 class MainViewControllerViewModel: MainViewControllerViewModelType {
   
+  var fetchDataSubject: PublishSubject<[Post]> = PublishSubject<[Post]>()
+  
+  private let disposBag: DisposeBag = DisposeBag()
+  
+  private let postUseCase: PostUseCase
+  
+  init(postUseCase: PostUseCase) {
+    self.postUseCase = postUseCase
+    
+    self.postUseCase.getPosts()
+      .subscribe(fetchDataSubject)
+      .disposed(by: disposBag)
+  }
+  
   // test
   var change: Bool = false
+  
   func testTab() {
     
     if change {
       change.toggle()
       BasicNetworkService().load(resource: ArrayAPIResource<Post>(requestAPIType: BasicAPIRequest.postsUID10))
-        .subscribe(fetchDataSubject)
+        .subscribe(onNext: { posts in
+          self.fetchDataSubject.onNext(posts)
+//          self.fetchDataSubject.on(.next(posts))
+        })
         .disposed(by: disposBag)
     }
     else {
@@ -35,18 +53,5 @@ class MainViewControllerViewModel: MainViewControllerViewModelType {
     }
     
   }
-  
-  var fetchDataSubject: PublishSubject<[Post]> = PublishSubject<[Post]>()
-  
-  let disposBag: DisposeBag = DisposeBag()
-  
-  init() {
-    // DI
-    BasicNetworkService().load(resource: ArrayAPIResource<Post>(requestAPIType: BasicAPIRequest.posts))
-      .subscribe(fetchDataSubject)
-      .disposed(by: disposBag)
-  }
-  
-  
   
 }
