@@ -9,8 +9,11 @@ import UIKit
 
 class PostCell: UITableViewCell {
 
+  private let userIdLabel = UILabel()
+  private let idLabel = UILabel()
   private let titleLabel = UILabel()
   private let bodyLabel = UILabel()
+  
   private let labelsStackView = UIStackView()
 
   override func layoutSubviews() {
@@ -23,7 +26,7 @@ class PostCell: UITableViewCell {
   }
 
   private func layoutUI() {
-    [titleLabel, bodyLabel].forEach {
+    [idLabel, userIdLabel, titleLabel, bodyLabel].forEach {
       labelsStackView.addArrangedSubview($0)
     }
     contentView.addSubview(labelsStackView)
@@ -40,14 +43,18 @@ class PostCell: UITableViewCell {
   }
 
   private func setupLabels() {
-    [titleLabel, bodyLabel].forEach {
+    [idLabel, userIdLabel, titleLabel, bodyLabel].forEach {
       $0.numberOfLines = 0
     }
+    idLabel.font = UIFont.boldSystemFont(ofSize: 12)
+    userIdLabel.font = UIFont.italicSystemFont(ofSize: 14)
     titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
     bodyLabel.font = UIFont.systemFont(ofSize: 16)
   }
 
   func configureWith(_ post: Post) {
+    idLabel.text = "Post ID: \(post.id)"
+    userIdLabel.text = "User ID: \(post.userId)"
     titleLabel.text = post.title
     bodyLabel.text = post.body
     layoutIfNeeded()

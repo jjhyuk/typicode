@@ -52,7 +52,6 @@ class ViewController: UIViewController {
       }
       .disposed(by: disposeBag)
     
-    // test
     tableView.rx.itemSelected
       .subscribe { indexPath in
         self.viewModel.testTab()

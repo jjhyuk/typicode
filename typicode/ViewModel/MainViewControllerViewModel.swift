@@ -10,9 +10,10 @@ import RxSwift
 
 protocol MainViewControllerViewModelType {
   
-  func testTab()
-  
   var fetchDataSubject: PublishSubject<[Post]> { get }
+  
+  // test Method
+  func testTab()
 }
 
 class MainViewControllerViewModel: MainViewControllerViewModelType {
@@ -32,26 +33,18 @@ class MainViewControllerViewModel: MainViewControllerViewModelType {
   }
   
   // test
-  var change: Bool = false
-  
+  private var change: Bool = true
   func testTab() {
-    
     if change {
       change.toggle()
-      BasicNetworkService().load(resource: ArrayAPIResource<Post>(requestAPIType: BasicAPIRequest.postsUID10))
-        .subscribe(onNext: { posts in
-          self.fetchDataSubject.onNext(posts)
-//          self.fetchDataSubject.on(.next(posts))
-        })
+      self.postUseCase.getPostsWithUID10()
+        .bind(to: fetchDataSubject)
         .disposed(by: disposBag)
-    }
-    else {
+    } else {
       change.toggle()
-      BasicNetworkService().load(resource: ArrayAPIResource<Post>(requestAPIType: BasicAPIRequest.posts))
-        .subscribe(fetchDataSubject)
+      self.postUseCase.getPosts()
+        .bind(to: fetchDataSubject)
         .disposed(by: disposBag)
     }
-    
   }
-  
 }
