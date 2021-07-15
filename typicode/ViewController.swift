@@ -48,22 +48,22 @@ class ViewController: UIViewController {
   
   func bindTableView() {
 
-    viewModel.fetchDataSubject
-      .bind(to: tableView.rx.items) { tableView, row, item in
-        let cell = tableView.dequeueReusableCell(withIdentifier: "test") as! PostCell
-        cell.configureWith(item)
-        return cell
-      }
-      .disposed(by: disposeBag)
-    
-    tableView.rx.modelSelected(Post.self)
-      .do { _ in
-        self.tableView.indexPathsForSelectedRows?.forEach {
-          self.tableView.deselectRow(at: $0, animated: true)
-        }
-      }
-      .subscribe(viewModel.transitionViewSubject)
-      .disposed(by: disposeBag)
+viewModel.fetchDataSubject
+  .bind(to: tableView.rx.items) { tableView, row, item in
+    let cell = tableView.dequeueReusableCell(withIdentifier: "test") as! PostCell
+    cell.configureWith(item)
+    return cell
+  }
+  .disposed(by: disposeBag)
+
+tableView.rx.modelSelected(Post.self)
+  .do { _ in
+    self.tableView.indexPathsForSelectedRows?.forEach {
+      self.tableView.deselectRow(at: $0, animated: true)
+    }
+  }
+  .subscribe(viewModel.transitionViewSubject)
+  .disposed(by: disposeBag)
     
 //    tableView.rx.itemSelected
 //      .map{ MainViewControllerViewReactorKit.Action.selectRow($0.row) }
