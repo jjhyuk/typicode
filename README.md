@@ -1,7 +1,8 @@
 # RxSwift, RxAlamofire + Clean Archtecture 맛보기
 
 반응형 프로그래밍에서 [RxSwift](http://reactivex.io/) 를 가볍게 사용해보고, Rx로 이루어진 RxAlmofire 와 함께 
-Clean Archtecture를 적용해보는 프로토 타입을 만들어 보았다. 
+Clean Archtecture를 적용해보는 프로토 타입을 만들어 보았다.
+아래 사용될 샘플의 RestAPI는 https://jsonplaceholder.typicode.com/ 해당 주소에서 사용하였다.
 
 
 
