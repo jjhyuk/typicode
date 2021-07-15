@@ -13,6 +13,7 @@ enum BasicAPIRequest: APIRequestConvertible {
   case albums
   // test
   case postsUID10
+  case commentWtihPostIndex(Int)
   
   var method: HTTPMethod {
       return .get
@@ -27,6 +28,8 @@ enum BasicAPIRequest: APIRequestConvertible {
     // test
     case .postsUID10:
       return "/posts?userId=10"
+    case .commentWtihPostIndex(let index):
+      return "/posts/\(index)/comments"
     }
   }
   

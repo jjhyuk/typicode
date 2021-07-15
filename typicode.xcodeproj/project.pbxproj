@@ -26,6 +26,10 @@
 		948D051F269D8303002866E5 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D051E269D8303002866E5 /* PostCell.swift */; };
 		948D0524269DDD25002866E5 /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D0523269DDD25002866E5 /* PostUseCase.swift */; };
 		948D0526269DDD4B002866E5 /* PostRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D0525269DDD4B002866E5 /* PostRepo.swift */; };
+		94AA3E9A26A06AFD0055BD82 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA3E9926A06AFD0055BD82 /* Comment.swift */; };
+		94AA3E9C26A06CCF0055BD82 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA3E9B26A06CCF0055BD82 /* CommentCell.swift */; };
+		94AA3E9E26A06D6B0055BD82 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA3E9D26A06D6B0055BD82 /* CommentViewController.swift */; };
+		94AA3EA026A06E0A0055BD82 /* CommentViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA3E9F26A06E0A0055BD82 /* CommentViewControllerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		948D051E269D8303002866E5 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		948D0523269DDD25002866E5 /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
 		948D0525269DDD4B002866E5 /* PostRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepo.swift; sourceTree = "<group>"; };
+		94AA3E9926A06AFD0055BD82 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		94AA3E9B26A06CCF0055BD82 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		94AA3E9D26A06D6B0055BD82 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		94AA3E9F26A06E0A0055BD82 /* CommentViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewControllerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 				948D04CA26987E61002866E5 /* AppDelegate.swift */,
 				948D04CC26987E61002866E5 /* SceneDelegate.swift */,
 				948D04CE26987E61002866E5 /* ViewController.swift */,
+				94AA3E9D26A06D6B0055BD82 /* CommentViewController.swift */,
 				948D04D026987E61002866E5 /* Main.storyboard */,
 				948D04D326987E64002866E5 /* Assets.xcassets */,
 				948D04D526987E64002866E5 /* LaunchScreen.storyboard */,
@@ -168,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				948D04F1269899A4002866E5 /* Post.swift */,
+				94AA3E9926A06AFD0055BD82 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				948D04F6269B2461002866E5 /* MainViewControllerViewModel.swift */,
+				94AA3E9F26A06E0A0055BD82 /* CommentViewControllerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				948D051E269D8303002866E5 /* PostCell.swift */,
+				94AA3E9B26A06CCF0055BD82 /* CommentCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -344,10 +356,14 @@
 				948D04E226988C15002866E5 /* BasicAPIRequest.swift in Sources */,
 				948D04CB26987E61002866E5 /* AppDelegate.swift in Sources */,
 				948D04E026988BC7002866E5 /* APIRequestConvertible.swift in Sources */,
+				94AA3EA026A06E0A0055BD82 /* CommentViewControllerViewModel.swift in Sources */,
 				948D04CD26987E61002866E5 /* SceneDelegate.swift in Sources */,
+				94AA3E9E26A06D6B0055BD82 /* CommentViewController.swift in Sources */,
 				948D04E626988F84002866E5 /* BasicNetworkService.swift in Sources */,
+				94AA3E9C26A06CCF0055BD82 /* CommentCell.swift in Sources */,
 				948D04EC2698953A002866E5 /* ArrayAPIResource.swift in Sources */,
 				948D04E926988FAE002866E5 /* NetworkService.swift in Sources */,
+				94AA3E9A26A06AFD0055BD82 /* Comment.swift in Sources */,
 				948D04EF269896B5002866E5 /* APIError.swift in Sources */,
 				948D04F2269899A4002866E5 /* Post.swift in Sources */,
 				948D04F426989BEB002866E5 /* Request+Logging.swift in Sources */,

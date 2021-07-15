@@ -17,6 +17,8 @@ class ViewController: UIViewController {
   
   var viewModel: MainViewControllerViewModelType = MainViewControllerViewModel(postUseCase: PostUseCase(postRepo: PostRepo()))
   
+//  var viewModel: MainViewControllerViewReactorKit = MainViewControllerViewReactorKit(postUseCase: PostUseCase(postRepo: PostRepo()))
+
   private let disposeBag: DisposeBag = DisposeBag()
 
   override func viewDidLoad() {
@@ -41,9 +43,11 @@ class ViewController: UIViewController {
     tableView.register(PostCell.self, forCellReuseIdentifier: "test")
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 100
+
   }
   
   func bindTableView() {
+
     viewModel.fetchDataSubject
       .bind(to: tableView.rx.items) { tableView, row, item in
         let cell = tableView.dequeueReusableCell(withIdentifier: "test") as! PostCell
@@ -52,11 +56,23 @@ class ViewController: UIViewController {
       }
       .disposed(by: disposeBag)
     
-    tableView.rx.itemSelected
-      .subscribe { indexPath in
-        self.viewModel.testTab()
+    tableView.rx.modelSelected(Post.self)
+      .do { _ in
+        self.tableView.indexPathsForSelectedRows?.forEach {
+          self.tableView.deselectRow(at: $0, animated: true)
+        }
       }
+      .subscribe(viewModel.transitionViewSubject)
       .disposed(by: disposeBag)
+    
+//    tableView.rx.itemSelected
+//      .map{ MainViewControllerViewReactorKit.Action.selectRow($0.row) }
+//      .bind(to: viewModel.action)
+//      .disposed(by: disposeBag)
+//
+//    viewModel.state.map { $0.indexPathRow }
+//      .subscribe { print(" \(String(describing: $0.element!))") }
+//      .disposed(by: disposeBag)
   }
 }
 

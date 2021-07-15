@@ -23,4 +23,8 @@ class PostUseCase {
   func getPostsWithUID10() -> Observable<[Post]> {
     postRepo.getPostsUID10()
   }
+  
+  func getCommentWithPostIndex(_ index: Int) -> Observable<[Comment]> {
+    postRepo.getCommentWithPostIndex(index)
+  }
 }

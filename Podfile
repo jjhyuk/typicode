@@ -12,5 +12,5 @@ target 'typicode' do
   pod 'RxCocoa'
   pod 'SnapKit'
   pod 'SDWebImage'
-
+  pod 'ReactorKit'
 end

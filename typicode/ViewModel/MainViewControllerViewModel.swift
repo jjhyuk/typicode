@@ -11,14 +11,14 @@ import RxSwift
 protocol MainViewControllerViewModelType {
   
   var fetchDataSubject: PublishSubject<[Post]> { get }
-  
-  // test Method
-  func testTab()
+  var transitionViewSubject: PublishSubject<Post> { get }
 }
 
 class MainViewControllerViewModel: MainViewControllerViewModelType {
   
   var fetchDataSubject: PublishSubject<[Post]> = PublishSubject<[Post]>()
+  
+  var transitionViewSubject: PublishSubject<Post> = PublishSubject<Post>()
   
   private let disposBag: DisposeBag = DisposeBag()
   
@@ -30,21 +30,20 @@ class MainViewControllerViewModel: MainViewControllerViewModelType {
     self.postUseCase.getPosts()
       .subscribe(fetchDataSubject)
       .disposed(by: disposBag)
+    
+    self.transitionViewSubject
+      .bind(onNext: self.viewChange)
+      .disposed(by: disposBag)
   }
   
-  // test
-  private var change: Bool = true
-  func testTab() {
-    if change {
-      change.toggle()
-      self.postUseCase.getPostsWithUID10()
-        .bind(to: fetchDataSubject)
-        .disposed(by: disposBag)
-    } else {
-      change.toggle()
-      self.postUseCase.getPosts()
-        .bind(to: fetchDataSubject)
-        .disposed(by: disposBag)
-    }
+  func viewChange(_ post: Post) {
+    print("View Transition")
+    print(post.id)
+    print(post.userId)
+    print(post.title)
+    print(post.body)
+    
+    let vc: CommentViewController = CommentViewController(post)
+    UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
   }
 }

@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.4.1)
+  - ReactorKit (3.0.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -15,9 +18,11 @@ PODS:
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
   - SnapKit (5.0.1)
+  - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
   - Alamofire
+  - ReactorKit
   - RxAlamofire
   - RxCocoa
   - RxSwift
@@ -27,22 +32,26 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - ReactorKit
     - RxAlamofire
     - RxCocoa
     - RxRelay
     - RxSwift
     - SDWebImage
     - SnapKit
+    - WeakMapTable
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  ReactorKit: 5348c9881dcb546605b451e32759dccc9937d36e
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: dd8f564baabbb9fc31710b6c4f3f24861389ebcb
+PODFILE CHECKSUM: bc018aff298ac0afb5e18c0354e6d6bb0e1ae712
 
 COCOAPODS: 1.10.1
