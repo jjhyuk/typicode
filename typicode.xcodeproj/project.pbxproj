@@ -92,6 +92,9 @@
 		948D04BE26987E61002866E5 = {
 			isa = PBXGroup;
 			children = (
+				94AA3EA426A08F150055BD82 /* CleanArchtecture.jpeg */,
+				94AA3EA326A08F150055BD82 /* S.PublishSubject.png */,
+				94AA3EA126A08F010055BD82 /* RxSwift, RxAlamofire + Clean Archtecture 맛보기.md */,
 				948D04C926987E61002866E5 /* typicode */,
 				948D04C826987E61002866E5 /* Products */,
 				49A969D0E3FF41FD4A50710D /* Pods */,
@@ -110,9 +113,6 @@
 		948D04C926987E61002866E5 /* typicode */ = {
 			isa = PBXGroup;
 			children = (
-				94AA3EA426A08F150055BD82 /* CleanArchtecture.jpeg */,
-				94AA3EA326A08F150055BD82 /* S.PublishSubject.png */,
-				94AA3EA126A08F010055BD82 /* RxSwift, RxAlamofire + Clean Archtecture 맛보기.md */,
 				948D04ED269896AA002866E5 /* Utility */,
 				948D0520269DDC1E002866E5 /* Domain */,
 				948D051D269D82F8002866E5 /* UI */,
